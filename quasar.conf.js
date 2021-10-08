@@ -7,7 +7,8 @@ module.exports = function(ctx) {
         // --> boot files are part of "main.js"
         boot: [
             'i18n',
-            'axios'
+            'axios',
+            'camera'
         ],
 
         css: [
@@ -82,7 +83,7 @@ module.exports = function(ctx) {
         },
 
         devServer: {
-            // https: true,
+            https: true,
             // port: 8080,
             open: true // opens browser window automatically
         },
