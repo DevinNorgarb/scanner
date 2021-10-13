@@ -37,5 +37,9 @@ npm run lint
 quasar build
 ```
 
+### Development for android
+```bash
+quasar dev -m cordova -T android```
+
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
