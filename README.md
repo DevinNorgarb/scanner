@@ -1,6 +1,6 @@
 # Quasar Barcode Reader (quasar-barcode-reader)
 
-A barcode reader only with Javascript in the Quasar Framework.
+
 
 ## Library used:
 
