@@ -4,7 +4,18 @@
 
 ## Library used:
 
+Tried this (no cordova plugin required)
 [QuaggaJS](https://serratus.github.io/quaggaJS/)
+
+And ended up going with this.
+[cordova-plugin-barcodescannerQuaggaJS](https://www.npmjs.com/package/cordova-plugin-barcodescanner)
+
+
+
+## Install Quasar-cli globally
+```bash
+ npm install -g @quasar/cli
+ ```
 
 ## Install the dependencies
 ```bash
