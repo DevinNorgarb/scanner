@@ -1,0 +1,12 @@
+version: "3"
+services:
+  quasar:
+    image: registry.enter.capetown/quasar
+    build: .
+    command: quasar dev #quasar dev --mode cordova -T android
+    ports:
+      - 8080:8080
+    privileged: true #false
+    volumes:
+      - ./:/app
+      - /dev/bus/usb:/dev/bus/usb
