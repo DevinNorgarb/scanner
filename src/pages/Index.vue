@@ -1,7 +1,6 @@
 <template>
   <div class="scanner_wrapper">
     <button @click="stop">Stop</button>
-    <br /><br />
     <span>{{ resultCodeInfo }}</span> <br />
     <span>{{ resultcode }}</span>
 
@@ -240,7 +239,7 @@ export default {
               facingMode: "environment"
             },
             area: {
-              top: "0%",
+              top: "10%",
               right: "0%",
               left: "0%",
               bottom: "0%"
