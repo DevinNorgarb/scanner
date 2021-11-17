@@ -34,14 +34,15 @@
             icon="qr_code_scanner"
             label="Select Barcode Readers"
           >
-            <q-card v-for="(key, reader) in readers">
+            <q-card v-for="( reader, key) in readers">
               <q-card-section>
                 <q-toggle
                   icon="qr_code_scanner"
                   label="Multiple"
+                  :key="key"
                   :false-value="false"
                   :true-value="true"
-                  v-model="reader"
+                  v-model="reader.value"
                 />
               </q-card-section>
             </q-card>
