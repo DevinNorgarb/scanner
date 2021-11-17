@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <div id="interactive" class="viewport scanner">
       <video></video>
       <canvas class="drawingBuffer"></canvas>

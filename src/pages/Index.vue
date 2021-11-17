@@ -1,47 +1,54 @@
 <template>
-  <q-page-container >
+  <q-page-container>
+    <q-page padding>
+      <scanner
+        @detected="detected"
+        :on-detected="detected"
+        :reader-size="readerSize"
+        :reader-type="'ean_reader'"
+      ></scanner>
 
-  <q-page padding>
-    <scanner
-      @detected="detected"
-      :on-detected="detected"
-      :reader-size="readerSize"
-      :reader-type="'ean_reader'"
-    ></scanner>
+      <div class="q-pa-md">
+        <q-list bordered class="rounded-borders">
+          <q-expansion-item
+            expand-separator
+            icon="settings"
+            label="Settings"
+            caption="Configure the scanner"
+          >
+            <q-card>
+              <q-card-section>
+                <q-toggle
+                  label="Multiple"
+                  color="pink"
+                  :false-value="false"
+                  :true-value="true"
+                  v-model=""
+                />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
 
-    <div class="q-pa-md" >
-      <q-list bordered class="rounded-borders">
-        <q-expansion-item
+          <q-expansion-item
           expand-separator
-          icon="perm_identity"
-          label="Account settings"
-          caption="John Doe"
+          icon="settings"
+          label="Select Readers"
         >
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
 
-        <q-expansion-item
-          expand-separator
-          icon="signal_wifi_off"
-          label="Wifi settings"
-        >
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
+            <q-card>
+              <q-card-section>
+                <q-toggle
+                icon="qr_code_scanner"
+                  label="Multiple"
+                  :false-value="false"
+                  :true-value="true"
+                  v-model=""
+                />
+              </q-card-section>
+            </q-card>
 
+        </q-expansion-item>
+<!--
         <q-expansion-item
           expand-separator
           icon="drafts"
@@ -67,17 +74,16 @@
               eveniet doloribus ullam aliquid.
             </q-card-section>
           </q-card>
-        </q-expansion-item>
-      </q-list>
-    </div>
+        </q-expansion-item> -->
+        </q-list>
+      </div>
 
-        <pre>
+      <pre>
   {{ results }}
-</pre>
-
-  </q-page>
-    </q-page-container>
-
+</pre
+      >
+    </q-page>
+  </q-page-container>
 </template>
 
 <script>
