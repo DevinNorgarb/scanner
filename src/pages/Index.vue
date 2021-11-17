@@ -39,11 +39,11 @@
                 <q-toggle
                   icon="qr_code_scanner"
                   label="Multiple"
-                  :key="key"
-                  :false-value="false"
                   :true-value="true"
-                  v-model="reader.value"
+                  :false-value="false"
                 />
+                  <!-- :key="key" -->
+                  <!-- v-model="reader.value" -->
               </q-card-section>
             </q-card>
           </q-expansion-item>
