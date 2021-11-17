@@ -30,51 +30,22 @@
           </q-expansion-item>
 
           <q-expansion-item
-          expand-separator
-          icon="settings"
-          label="Select Readers"
-        >
-
-            <q-card>
+            expand-separator
+            icon="qr_code_scanner"
+            label="Select Barcode Readers"
+          >
+            <q-card v-for="(key, reader) in readers">
               <q-card-section>
                 <q-toggle
-                icon="qr_code_scanner"
+                  icon="qr_code_scanner"
                   label="Multiple"
                   :false-value="false"
                   :true-value="true"
-                  v-model=""
+                  v-model="reader"
                 />
               </q-card-section>
             </q-card>
-
-        </q-expansion-item>
-<!--
-        <q-expansion-item
-          expand-separator
-          icon="drafts"
-          label="Drafts"
-          header-class="text-purple"
-        >
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-
-        <q-expansion-item icon="assessment" label="Disabled" disable>
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item> -->
+          </q-expansion-item>
         </q-list>
       </div>
 
@@ -104,6 +75,22 @@ export default {
       width: 640,
       height: 480,
     },
+ readers: [
+        "code_128_reader",
+        "ean_reader",
+        "ean_8_reader",
+        "code_39_reader",
+        "code_39_vin_reader",
+        "codabar_reader",
+        "upc_reader",
+        "upc_e_reader",
+        "i2of5_reader",
+        "2of5_reader",
+        "code_93_reader",
+        "code_32_reader"
+      ],
+
+
     data: null,
     resultcode: "-",
     results: [],

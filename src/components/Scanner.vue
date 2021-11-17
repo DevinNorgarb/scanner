@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div id="interactive" class="viewport scanner">
       <video></video>
       <canvas class="drawingBuffer"></canvas>
@@ -13,25 +13,25 @@ export default {
   name: "Scanner",
   props: {
     onDetected: {
-      type: Function
+      type: Function,
     },
     onProcessed: {
-      type: Function
+      type: Function,
     },
-    readerType: {
-      type: String,
-      default: "code_128_reader"
+    readers: {
+      type: Array,
+      default: this.getReaders,
     },
     readerSize: {
       width: {
         type: Number,
-        default: 640
+        default: 640,
       },
       height: {
         type: Number,
-        default: 480
-      }
-    }
+        default: 480,
+      },
+    },
   },
   data() {
     return {
@@ -42,12 +42,12 @@ export default {
             width: { min: this.readerSize.width },
             height: { min: this.readerSize.height },
             facingMode: "environment",
-            aspectRatio: { min: 1, max: 2 }
-          }
+            aspectRatio: { min: 1, max: 2 },
+          },
         },
         locator: {
           patchSize: "large",
-          halfSample: false
+          halfSample: false,
         },
         numOfWorkers: 4,
         frequency: 10,
@@ -64,19 +64,39 @@ export default {
             "i2of5_reader",
             "2of5_reader",
             "code_93_reader",
-            "code_32_reader"
-          ]
+            "code_32_reader",
+          ],
         },
-        locate: true
-      }
+        locate: true,
+      },
     };
   },
   mounted() {
     this.init();
   },
+  computed: {
+    getReaders() {
+      return [
+        "code_128_reader",
+        "ean_reader",
+        "ean_8_reader",
+        "code_39_reader",
+        "code_39_vin_reader",
+        "codabar_reader",
+        "upc_reader",
+        "upc_e_reader",
+        "i2of5_reader",
+        "2of5_reader",
+        "code_93_reader",
+        "code_32_reader",
+      ];
+    },
+  },
   methods: {
     init() {
-      Quagga.init(this.quaggaState, function(err) {
+      // this.readers =
+      this.quaggaState.decoder.readers = this.getReaders();
+      Quagga.init(this.quaggaState, function (err) {
         if (err) {
           return console.log(err);
         }
@@ -111,13 +131,13 @@ export default {
             parseInt(drawingCanvas.getAttribute("height"))
           );
           result.boxes
-            .filter(function(box) {
+            .filter(function (box) {
               return box !== result.box;
             })
-            .forEach(function(box) {
+            .forEach(function (box) {
               Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
                 color: "green",
-                lineWidth: 2
+                lineWidth: 2,
               });
             });
         }
@@ -125,7 +145,7 @@ export default {
         if (result.box) {
           Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
             color: "#00F",
-            lineWidth: 2
+            lineWidth: 2,
           });
         }
 
@@ -142,8 +162,8 @@ export default {
     _onDetected(result) {
       console.log("detected: ", result);
       this.$emit("detected", result);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="css">
