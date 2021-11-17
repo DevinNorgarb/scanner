@@ -1,6 +1,7 @@
 <template>
   <q-page-container>
     <q-page>
+      <div style="font-size: 20px">Code: {{ currentCode }}</div>
       <q-card>
         <q-card-section>
           <scanner
@@ -48,7 +49,7 @@
                   label="Multiple"
                   :true-value="true"
                   :false-value="false"
-                  v-model="reader.value"
+                  v-model="reader.name"
                   :key="key"
                 />
               </q-card-section>
@@ -137,12 +138,14 @@ export default {
     resultcode: "-",
     results: [],
     resultCodeInfo: "-",
-    foundCodes: new Map(),
+    currentCode: "",
   }),
 
   methods: {
     detected(payload) {
       // console.log(payload.codeResult);
+      this.currentCode = payload.codeResult.code;
+
       let exists = this.results.find(
         (code) => code.code == payload.codeResult.code
       );
