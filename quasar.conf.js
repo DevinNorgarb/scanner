@@ -31,7 +31,7 @@ module.exports = function(ctx) {
             iconSet: 'material-icons',
             // lang: 'de', // Quasar language
             all: true, // --- includes everything; for dev only!
-
+            dark: true,
             // components: [
             //     'QLayout',
             //     'QHeader',
