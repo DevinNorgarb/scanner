@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 RUN set -xe  \
         && echo '#!/bin/sh' > /usr/sbin/policy-rc.d  \
         && echo 'exit 101' >> /usr/sbin/policy-rc.d  \
@@ -55,7 +55,7 @@ RUN dpkg --add-architecture i386  \
         && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*  \
         && apt-get autoremove -y  \
         && apt-get clean
-ENV NODEJS_VERSION=10.15.1 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/android/tools:/opt/android/platform-tools:/opt/android/build-tools/27.0.0:/usr/share/ant/bin:/usr/share/maven/bin:/usr/share/gradle/bin:/opt/node/bin
+ENV NODEJS_VERSION=16 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/android/tools:/opt/android/platform-tools:/opt/android/build-tools/27.0.0:/usr/share/ant/bin:/usr/share/maven/bin:/usr/share/gradle/bin:/opt/node/bin
 WORKDIR /opt/node
 RUN apt-get update  \
         # && apt-get --allow-releaseinfo-change update  \
@@ -70,4 +70,4 @@ RUN npm install -g @vue/cli  \
         && npm install -g @vue/cli-init  \
         && npm install -g quasar-cli  \
         && npm install -g yarn
-WORKDIR /app%  
+WORKDIR /app%

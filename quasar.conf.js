@@ -18,7 +18,7 @@ module.exports = function(ctx) {
         extras: [
             // 'ionicons-v4',
             // 'mdi-v3',
-            // 'fontawesome-v5',
+            'fontawesome-v5',
             // 'eva-icons',
             // 'themify',
             // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
@@ -28,27 +28,26 @@ module.exports = function(ctx) {
         ],
 
         framework: {
-            // iconSet: 'ionicons-v4',
+            iconSet: 'ionicons-v4',
             // lang: 'de', // Quasar language
+            all: true, // --- includes everything; for dev only!
 
-            // all: true, // --- includes everything; for dev only!
-
-            components: [
-                'QLayout',
-                'QHeader',
-                'QDrawer',
-                'QPageContainer',
-                'QPage',
-                'QToolbar',
-                'QToolbarTitle',
-                'QBtn',
-                'QIcon',
-                'QList',
-                'QItem',
-                'QItemSection',
-                'QItemLabel',
-                'QPageSticky'
-            ],
+            // components: [
+            //     'QLayout',
+            //     'QHeader',
+            //     'QDrawer',
+            //     'QPageContainer',
+            //     'QPage',
+            //     'QToolbar',
+            //     'QToolbarTitle',
+            //     'QBtn',
+            //     'QIcon',
+            //     'QList',
+            //     'QItem',
+            //     'QItemSection',
+            //     'QItemLabel',
+            //     'QPageSticky'
+            // ],
 
             directives: [
                 'Ripple'
@@ -85,7 +84,7 @@ module.exports = function(ctx) {
         devServer: {
             host: "0.0.0.0",
             https: true,
-            // port: 8080,
+            port: 8000,
             open: true // opens browser window automatically
         },
 
@@ -100,7 +99,7 @@ module.exports = function(ctx) {
             // workboxPluginMode: 'InjectManifest',
             // workboxOptions: {}, // only for NON InjectManifest
             manifest: {
-                // name: 'Quasar Barcode Reader',
+                name: 'Pargo Barcode Scanner',
                 // short_name: 'Quasar Barcode Reader',
                 // description: 'A Quasar Framework app',
                 display: 'standalone',
