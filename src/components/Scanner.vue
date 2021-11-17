@@ -20,7 +20,7 @@ export default {
     },
     readers: {
       type: Array,
-      default: this.getReaders,
+      default: [],
     },
     readerSize: {
       width: {

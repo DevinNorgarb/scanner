@@ -36,12 +36,12 @@
           >
             <q-card v-for="( reader, key) in readers">
               <q-card-section>
-                <q-toggle
+                <!-- <q-toggle
                   icon="qr_code_scanner"
                   label="Multiple"
                   :true-value="true"
                   :false-value="false"
-                />
+                /> -->
                   <!-- :key="key" -->
                   <!-- v-model="reader.value" -->
               </q-card-section>
