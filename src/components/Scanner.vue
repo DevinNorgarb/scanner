@@ -81,8 +81,7 @@ export default {
   },
   methods: {
     init() {
-      // this.readers =
-      this.quaggaState.decoder.readers = this.getReaders();
+      this.quaggaState.decoder.readers = this.readers;
       Quagga.init(this.quaggaState, function (err) {
         if (err) {
           return console.log(err);

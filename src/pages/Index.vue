@@ -1,14 +1,21 @@
 <template>
   <q-page-container>
-    <q-page padding>
-      <scanner
-        @detected="detected"
-        :on-detected="detected"
-        :reader-size="readerSize"
-        :reader-type="'ean_reader'"
-      ></scanner>
+    <q-page>
+      <q-card>
+        <q-card-section>
+          <scanner
+            @detected="detected"
+            :on-detected="detected"
+            :reader-size="readerSize"
+            :reader-type="'ean_reader'"
+          ></scanner>
+        </q-card-section>
+      </q-card>
 
       <div class="q-pa-md">
+        <q-separator spaced />
+        <q-item-label header>Configuration</q-item-label>
+
         <q-list bordered class="rounded-borders">
           <q-expansion-item
             expand-separator
@@ -23,8 +30,8 @@
                   color="pink"
                   :false-value="false"
                   :true-value="true"
-                  v-model=""
                 />
+                <!-- v-model="" -->
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -34,16 +41,16 @@
             icon="qr_code_scanner"
             label="Select Barcode Readers"
           >
-            <q-card v-for="( reader, key) in readers">
+            <q-card :key="key" v-for="(reader, key) in readers">
               <q-card-section>
-                <!-- <q-toggle
+                <q-toggle
                   icon="qr_code_scanner"
                   label="Multiple"
                   :true-value="true"
                   :false-value="false"
-                /> -->
-                  <!-- :key="key" -->
-                  <!-- v-model="reader.value" -->
+                  v-model="reader.value"
+                  :key="key"
+                />
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -76,22 +83,56 @@ export default {
       width: 640,
       height: 480,
     },
- readers: [
-        "code_128_reader",
-        "ean_reader",
-        "ean_8_reader",
-        "code_39_reader",
-        "code_39_vin_reader",
-        "codabar_reader",
-        "upc_reader",
-        "upc_e_reader",
-        "i2of5_reader",
-        "2of5_reader",
-        "code_93_reader",
-        "code_32_reader"
-      ],
-
-
+    readers: [
+      {
+        name: "code_128_reader",
+        id: "code_128_reader",
+      },
+      {
+        name: "ean_reader",
+        id: "ean_reader",
+      },
+      {
+        name: "ean_8_reader",
+        id: "ean_8_reader",
+      },
+      {
+        name: "code_39_reader",
+        id: "code_39_reader",
+      },
+      {
+        name: "code_39_vin_reader",
+        id: "code_39_vin_reader",
+      },
+      {
+        name: "codabar_reader",
+        id: "codabar_reader",
+      },
+      {
+        name: "upc_reader",
+        id: "upc_reader",
+      },
+      {
+        name: "upc_e_reader",
+        id: "upc_e_reader",
+      },
+      {
+        name: "i2of5_reader",
+        id: "i2of5_reader",
+      },
+      {
+        name: "2of5_reader",
+        id: "2of5_reader",
+      },
+      {
+        name: "code_93_reader",
+        id: "code_93_reader",
+      },
+      {
+        name: "code_32_reader",
+        id: "code_32_reader",
+      },
+    ],
     data: null,
     resultcode: "-",
     results: [],
@@ -101,7 +142,7 @@ export default {
 
   methods: {
     detected(payload) {
-      console.log(payload.codeResult);
+      // console.log(payload.codeResult);
       let exists = this.results.find(
         (code) => code.code == payload.codeResult.code
       );
