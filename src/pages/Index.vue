@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <q-page-container >
+
+  <q-page padding>
     <scanner
       @detected="detected"
       :on-detected="detected"
       :reader-size="readerSize"
       :reader-type="'ean_reader'"
     ></scanner>
-    <pre>
-  {{ results }}
-</pre
-    >
-    <div class="q-pa-md" style="max-width: 350px">
+
+    <div class="q-pa-md" >
       <q-list bordered class="rounded-borders">
         <q-expansion-item
           expand-separator
@@ -71,7 +70,14 @@
         </q-expansion-item>
       </q-list>
     </div>
-  </div>
+
+        <pre>
+  {{ results }}
+</pre>
+
+  </q-page>
+    </q-page-container>
+
 </template>
 
 <script>
