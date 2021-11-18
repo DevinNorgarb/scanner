@@ -8,6 +8,8 @@
           :on-detected="detected"
           :reader-size="readerSize"
           :reader-type="'ean_reader'"
+          :readers="getActiveReaders"
+          :multiple="multiple"
         ></scanner>
       </q-card-section>
     </q-card>
@@ -20,14 +22,13 @@
         <q-expansion-item
           expand-separator
           icon="settings"
-          label="Settings"
+          label="Settings (Work in progress)"
           caption="Configure the scanner"
         >
           <q-card>
             <q-card-section>
               <q-toggle
                 label="Multiple"
-                color="pink"
                 :false-value="false"
                 :true-value="true"
                 v-model="multiple"
@@ -90,72 +91,78 @@ export default {
 
     }, 1000);
   },
+  computed: {
+    getActiveReaders() {
+      var readers = this.readers.filter((reader) => reader.active);
+      return readers.map((reader) => reader.name);
+    },
+  },
   data: () => ({
     readerSize: {
       width: 640,
       height: 480,
     },
-    multiple: false,
+    multiple: true,
     readers: [
       {
         name: "code_128_reader",
         id: "code_128_reader",
-        active: false
+        active: true
       },
       {
         name: "ean_reader",
         id: "ean_reader",
-        active: false
+        active: true
       },
       {
         name: "ean_8_reader",
         id: "ean_8_reader",
-        active: false
+        active: true
       },
       {
         name: "code_39_reader",
         id: "code_39_reader",
-        active: false
+        active: true
       },
       {
         name: "code_39_vin_reader",
         id: "code_39_vin_reader",
-        active: false
+        active: true
       },
       {
         name: "codabar_reader",
         id: "codabar_reader",
-        active: false
+        active: true
       },
       {
         name: "upc_reader",
         id: "upc_reader",
-        active: false
+        active: true
       },
       {
         name: "upc_e_reader",
         id: "upc_e_reader",
-        active: false
+        active: true
       },
       {
         name: "i2of5_reader",
         id: "i2of5_reader",
-        active: false
+        active: true
       },
       {
         name: "2of5_reader",
         id: "2of5_reader",
-        active: false
+        active: true
       },
       {
         name: "code_93_reader",
         id: "code_93_reader",
-        active: false
+        active: true
       },
       {
         name: "code_32_reader",
         id: "code_32_reader",
-        active: false
+        active: true
       },
     ],
     activeReaders: [

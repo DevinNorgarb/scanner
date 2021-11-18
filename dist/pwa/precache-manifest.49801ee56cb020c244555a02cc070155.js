@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b883e66307e0d31d12de",
-    "url": "css/2.fa2f6c2b.css"
+    "revision": "5cdf7279a49b9a380bd6",
+    "url": "css/2.9782480e.css"
   },
   {
-    "revision": "7ca0b3435027e95a96c1",
+    "revision": "15ef2a425f38881743ec",
     "url": "css/app.235e2d9b.css"
   },
   {
@@ -72,12 +72,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "fonts/materialdesignicons-webfont.e80dbad8.woff2"
   },
   {
-    "revision": "0ed97b7ca55241596fc55832b10622e2",
+    "revision": "6de6a37a726496badaa2bfea06351969",
     "url": "index.html"
   },
   {
-    "revision": "b883e66307e0d31d12de",
-    "url": "js/2.b883e663.js"
+    "revision": "5cdf7279a49b9a380bd6",
+    "url": "js/2.5cdf7279.js"
   },
   {
     "revision": "c6a0829ef92ba086ca58",
@@ -88,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/4.82644302.js"
   },
   {
-    "revision": "7ca0b3435027e95a96c1",
-    "url": "js/app.ce2a6921.js"
+    "revision": "15ef2a425f38881743ec",
+    "url": "js/app.492c5b90.js"
   },
   {
     "revision": "419957a57725e860f890",
@@ -100,7 +100,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "manifest.json"
   },
   {
-    "revision": "805b0a66d63db95a76ddda23e3a8c12f",
+    "revision": "e048328632a755b290249e112963bacc",
     "url": "statics/app-logo-128x128.png"
   },
   {
