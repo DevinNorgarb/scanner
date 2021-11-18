@@ -2,7 +2,7 @@
     "name": "quasar-barcode-reader",
     "version": "0.0.1",
     "description": "A Quasar Framework app",
-    "productName": "Quasar Barcode Reader",
+    "productName": "Pargo Barcode Reader",
     "cordovaId": "org.cordova.quasar.app",
     "author": "Patrick Monteiro <eng.patrickmonteiro@gmail.com>",
     "private": true,
