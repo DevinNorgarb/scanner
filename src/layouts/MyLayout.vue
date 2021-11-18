@@ -13,7 +13,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          PARcode Scanner
+          Pargo Barcode Scanner
         </q-toolbar-title>
 
         <div></div>

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.49801ee56cb020c244555a02cc070155.js"
+  "precache-manifest.74408963570695d42e8bff9a3ba55ade.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "quasar-barcode-reader"});

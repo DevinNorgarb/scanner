@@ -1,6 +1,5 @@
 <template>
   <q-page>
-    <h3 style="font-size: 15px q-pa-md">{{ currentCode }}</h3>
     <q-card>
       <q-card-section>
         <scanner
@@ -15,8 +14,10 @@
     </q-card>
 
     <div class="q-pa-md">
+          <h3 style="font-size: 1rem !important; font-weight: 300;"> Decoded result: {{ currentCode  }}</h3>
+
       <q-separator spaced />
-      <q-item-label header>Configuration</q-item-label>
+      <!-- <q-item-label header>Configuration</q-item-label> -->
 
       <q-list bordered class="rounded-borders">
         <q-expansion-item
@@ -32,6 +33,7 @@
                 :false-value="false"
                 :true-value="true"
                 v-model="multiple"
+                :value="multiple"
               />
               <!-- v-model="" -->
             </q-card-section>
@@ -73,6 +75,7 @@ import Scanner from "components/Scanner";
 import $ from "jquery";
 // import Quagga from "@ericblade/quagga2";
 import axios from "axios";
+import { Notify } from 'quasar'
 
 export default {
   components: {
@@ -180,6 +183,13 @@ export default {
     detected(payload) {
       this.countdown = 10;
       this.currentCode = payload.codeResult.code;
+
+      Notify.create({
+        message: "Code: " + payload.codeResult.code,
+        position: "bottom",
+        type: "success",
+        duration: 5000,
+      });
 
       let exists = this.results.find(
         (code) => code.code == payload.codeResult.code
