@@ -75,7 +75,7 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <allow-navigation href="about:*" />
-    <engine name="android" spec="^7.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^6.0.0" />
     <preference name="SplashMaintainAspectRatio" value="true" />
+    <engine name="android" spec="^7.1.4" />
 </widget>
