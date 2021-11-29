@@ -104,7 +104,7 @@ export default {
       width: 640,
       height: 480,
     },
-    multiple: true,
+    multiple: false,
     readers: [
       {
         name: "code_128_reader",
@@ -114,57 +114,57 @@ export default {
       {
         name: "ean_reader",
         id: "ean_reader",
-        active: true,
+        active: false,
       },
       {
         name: "ean_8_reader",
         id: "ean_8_reader",
-        active: true,
+        active: false,
       },
       {
         name: "code_39_reader",
         id: "code_39_reader",
-        active: true,
+        active: false,
       },
       {
         name: "code_39_vin_reader",
         id: "code_39_vin_reader",
-        active: true,
+        active: false,
       },
       {
         name: "codabar_reader",
         id: "codabar_reader",
-        active: true,
+        active: false,
       },
       {
         name: "upc_reader",
         id: "upc_reader",
-        active: true,
+        active: false,
       },
       {
         name: "upc_e_reader",
         id: "upc_e_reader",
-        active: true,
+        active: false,
       },
       {
         name: "i2of5_reader",
         id: "i2of5_reader",
-        active: true,
+        active: false,
       },
       {
         name: "2of5_reader",
         id: "2of5_reader",
-        active: true,
+        active: false,
       },
       {
         name: "code_93_reader",
         id: "code_93_reader",
-        active: true,
+        active: false,
       },
       {
         name: "code_32_reader",
         id: "code_32_reader",
-        active: true,
+        active: false,
       },
     ],
     activeReaders: [],
