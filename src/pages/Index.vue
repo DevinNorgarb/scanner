@@ -4,7 +4,6 @@
       <q-card-section>
         <scanner
           @detected="detected"
-          :on-detected="detected"
           :reader-size="readerSize"
           :reader-type="'ean_reader'"
           :readers="getActiveReaders"
@@ -14,7 +13,9 @@
     </q-card>
 
     <div class="q-pa-md">
-          <h3 style="font-size: 1rem !important; font-weight: 300;"> Decoded result: {{ currentCode  }}</h3>
+      <h3 style="font-size: 1rem !important; font-weight: 300">
+        Decoded result: {{ currentCode }}
+      </h3>
 
       <q-separator spaced />
       <!-- <q-item-label header>Configuration</q-item-label> -->
@@ -75,7 +76,7 @@ import Scanner from "components/Scanner";
 import $ from "jquery";
 // import Quagga from "@ericblade/quagga2";
 import axios from "axios";
-import { Notify } from 'quasar'
+import { Notify } from "quasar";
 
 export default {
   components: {
@@ -83,7 +84,6 @@ export default {
   },
   mounted() {
     setInterval(() => {
-
       if (this.countdown > 0) {
         this.countdown--;
       }
@@ -91,7 +91,6 @@ export default {
       if (this.countdown === 0) {
         this.currentCode = "";
       }
-
     }, 1000);
   },
   computed: {
@@ -110,67 +109,65 @@ export default {
       {
         name: "code_128_reader",
         id: "code_128_reader",
-        active: true
+        active: true,
       },
       {
         name: "ean_reader",
         id: "ean_reader",
-        active: true
+        active: true,
       },
       {
         name: "ean_8_reader",
         id: "ean_8_reader",
-        active: true
+        active: true,
       },
       {
         name: "code_39_reader",
         id: "code_39_reader",
-        active: true
+        active: true,
       },
       {
         name: "code_39_vin_reader",
         id: "code_39_vin_reader",
-        active: true
+        active: true,
       },
       {
         name: "codabar_reader",
         id: "codabar_reader",
-        active: true
+        active: true,
       },
       {
         name: "upc_reader",
         id: "upc_reader",
-        active: true
+        active: true,
       },
       {
         name: "upc_e_reader",
         id: "upc_e_reader",
-        active: true
+        active: true,
       },
       {
         name: "i2of5_reader",
         id: "i2of5_reader",
-        active: true
+        active: true,
       },
       {
         name: "2of5_reader",
         id: "2of5_reader",
-        active: true
+        active: true,
       },
       {
         name: "code_93_reader",
         id: "code_93_reader",
-        active: true
+        active: true,
       },
       {
         name: "code_32_reader",
         id: "code_32_reader",
-        active: true
+        active: true,
       },
     ],
-    activeReaders: [
-
-    ],
+    activeReaders: [],
     data: null,
     resultcode: "-",
     results: [],
@@ -184,13 +181,13 @@ export default {
       this.countdown = 10;
       this.currentCode = payload.codeResult.code;
 
+      alert(this.currentCode);
       Notify.create({
         message: "Code: " + payload.codeResult.code,
         position: "bottom",
         type: "success",
         duration: 5000,
       });
-
       let exists = this.results.find(
         (code) => code.code == payload.codeResult.code
       );

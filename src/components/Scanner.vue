@@ -1,8 +1,20 @@
 <template>
   <div>
     <div id="interactive" class="viewport scanner">
-      <video></video>
-      <canvas class="drawingBuffer"></canvas>
+      <div class="row items-center " style="height: 70vh">
+        <video></video>
+        <canvas class="drawingBuffer"></canvas>
+        <div class="col text-center q-pa-sm">
+          <q-btn
+            color="secondary"
+            icon="camera_alt"
+            label="Scan Parcel"
+            class="full-width"
+            size="lg"
+            @click="reInit()"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +36,7 @@ export default {
     },
     multiple: {
       type: Boolean,
-      default: () => true,
+      default: () => false,
     },
     readerSize: {
       width: {
@@ -51,7 +63,7 @@ export default {
           },
         },
         locator: {
-          patchSize: "large",
+          patchSize: "small",
           halfSample: false,
         },
         numOfWorkers: 4,
@@ -60,6 +72,7 @@ export default {
           readers: this.readers,
         },
         locate: true,
+        lastResult: true,
       },
     };
   },
@@ -70,22 +83,29 @@ export default {
   methods: {
     init() {
       this.quaggaState.decoder.readers = this.readers;
-      Quagga.init(this.quaggaState, function (err) {
+      Quagga.init(this.quaggaState, (err) => {
         if (err) {
           return console.log(err);
         }
         Quagga.start();
       });
 
-      Quagga.onDetected(this.onDetected ? this.onDetected : this._onDetected);
-      Quagga.onProcessed(
-        this.onProcessed ? this.onProcessed : this._onProcessed
-      );
+      // Quagga.onDetected();
+      Quagga.onProcessed(this._onProcessed);
     },
     reInit() {
       Quagga.stop();
 
       this.init();
+    },
+    afterDetected(result) {
+      console.log("after detect");
+      console.log(result);
+      Quagga.stop();
+      this.$emit("detected", result);
+
+      // this.onDetected(result);
+      // this.reInit();
     },
     getImage() {
       const canvas = Quagga.canvas.dom.image;
@@ -130,12 +150,12 @@ export default {
             drawingCtx,
             { color: "red", lineWidth: 7 }
           );
+          this.afterDetected(result);
         }
       }
     },
     _onDetected(result) {
       console.log("detected: ", result);
-      this.$emit("detected", result);
     },
   },
 };
